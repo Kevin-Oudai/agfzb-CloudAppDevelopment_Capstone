@@ -14,23 +14,16 @@ import json
 logger = logging.getLogger(__name__)
 
 
-# Create your views here.
-
 def index(request):
     return render(request, 'djangoapp/index.html', {})
-
-# Create an `about` view to render a static about page
 
 
 def about(request):
     return render(request, 'djangoapp/about.html', {})
 
 
-# Create a `contact` view to return a static contact page
 def contact(request):
     return render(request, 'djangoapp/contact.html', {})
-
-# Create a `login_request` view to handle sign in request
 
 
 def login_request(request):
@@ -52,9 +45,14 @@ def login_request(request):
     else:
         return render(request, 'djangoapp/index.html', context)
 
-# Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
+
+def logout_request(request):
+    # Get the user object based on session id in request
+    print("Log out the user `{}`".format(request.user.username))
+    # Logout user in the request
+    logout(request)
+    # Redirect user back to course list view
+    return redirect('djangoapp:index')
 
 # Create a `registration_request` view to handle sign up request
 # def registration_request(request):
