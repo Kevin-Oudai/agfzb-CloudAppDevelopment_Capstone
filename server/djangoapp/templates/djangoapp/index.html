@@ -30,9 +30,26 @@
                 <a class="nav-item nav-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
             </div>
         </div>
+        {% if user.is_authenticated %}
+        <li>
+            <a class="btn btn-link" href="#">({{ user.username }})</a>
+            <a class="btn btn-link" href="#">Logout</a>
+        </li>
+        {% else %}
+        <form class="form-inline" action="#" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Username" name="username" >
+                <input type="password" class="form-control" placeholder="Password" name="psw" >
+                <button class="btn btn-primary" type="submit">Login</button>
+                <a class="btn btn-link" href="#">Sign Up</a>
+            </div>
+        </form>
+        {% endif %}
     </nav>
 
     <!--Add a dealer table here -->
+    <div class="container">
     {% block content %}
     <div class="jumbotron">
         <h1 class="display-4">Home Page</h1>
@@ -40,6 +57,7 @@
         </p>
       </div>
     {% endblock content %}
+    </div>
 </body>
 
 </html>
