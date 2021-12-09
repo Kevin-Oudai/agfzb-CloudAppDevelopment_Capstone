@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <title>Dealership Review</title>
+    <title>Best Cars</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
     <script
         src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
-
 </head>
 
 <body>
@@ -25,7 +24,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="{% url 'djangoapp:index' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="{% url 'djangoapp:index' %}">Home <span
+                        class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="{% url 'djangoapp:about' %}">About</a>
                 <a class="nav-item nav-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
             </div>
@@ -39,8 +39,8 @@
         <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
             {% csrf_token %}
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Username" name="username" >
-                <input type="password" class="form-control" placeholder="Password" name="psw" >
+                <input type="text" class="form-control" placeholder="Username" name="username">
+                <input type="password" class="form-control" placeholder="Password" name="psw">
                 <button class="btn btn-primary" type="submit">Login</button>
                 <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
             </div>
@@ -50,13 +50,13 @@
 
     <!--Add a dealer table here -->
     <div class="container">
-    {% block content %}
-    <div class="jumbotron">
-        <h1 class="display-4">Home Page</h1>
-        <p class="lead">This the home page of dealership review</p>
-        </p>
-      </div>
-    {% endblock content %}
+        {% block content %}
+        <div class="jumbotron">
+            <h1 class="display-4">Home Page</h1>
+            <p class="lead">This the home page of dealership review</p>
+            </p>
+        </div>
+        {% endblock content %}
     </div>
 </body>
 
